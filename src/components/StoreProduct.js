@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function StoreProduct() {
   return (
     <Link to="/product" className="cursor-pointer">
-      <div className="bg-white p-4 rounded-md shadow-md hover:shadow-lg">
+      <div className="bg-white p-4 rounded-md shadow-md hover:shadow-lg hover:scale-105 duration-300">
         <img
           src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80"
           alt="Product"
@@ -14,7 +14,7 @@ function StoreProduct() {
         <p className="text-gray-700 mb-4">Product description...</p>
         <p className="text-gray-700 mb-4">Stock: 10</p>
         <p className="text-gray-700 mb-4">Price: 100</p>
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
+        <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full hover:bg-indigo-400">
           Add to cart
         </button>
       </div>

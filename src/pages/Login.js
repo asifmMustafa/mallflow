@@ -7,7 +7,7 @@ const LoginPage = () => {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h1 className="mt-6 text-center text-6xl font-extrabold text-gray-900">
-            MallFlow
+            Mall<span className="text-indigo-700">Flow</span>
           </h1>
         </div>
         <form className="mt-8 space-y-6">
@@ -45,7 +45,7 @@ const LoginPage = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-l font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-l font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Login
             </button>
@@ -54,7 +54,7 @@ const LoginPage = () => {
         <div className="text-center mt-4">
           <Link
             to="/signup"
-            className="font-medium text-indigo-600 hover:text-indigo-500"
+            className="font-medium text-indigo-600 hover:text-indigo-400"
           >
             Create an account?
           </Link>

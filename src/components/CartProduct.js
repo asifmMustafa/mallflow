@@ -10,7 +10,7 @@ function CartProduct() {
       />
       <h2 className="text-xl font-bold mb-2">Product Title</h2>
       <p className="text-gray-700 mb-4">Product description...</p>
-      <button className="bg-red-500 text-white px-4 py-2 rounded-md w-full">
+      <button className="bg-red-500 text-white px-4 py-2 rounded-md w-full hover:bg-red-300">
         Remove
       </button>
     </div>

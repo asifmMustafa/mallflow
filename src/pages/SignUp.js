@@ -1,12 +1,14 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { BsChevronDown } from "react-icons/bs"; // Import arrow icon
 
 const SignUp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h1 className="mt-6 text-center text-4xl font-extrabold text-gray-900">
-            Sign Up
+          <h1 className="mt-6 text-center text-6xl font-extrabold text-gray-900">
+            Sign<span className="text-indigo-700">Up</span>
           </h1>
         </div>
         <form className="mt-8 space-y-6">
@@ -57,20 +59,26 @@ const SignUp = () => {
               <label htmlFor="user-type" className="sr-only">
                 User Type
               </label>
-              <select
-                id="user-type"
-                name="user-type"
-                required
-                className="appearance-none rounded relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-l"
-              >
-                <option value="" disabled selected>
-                  Choose User Type
-                </option>
-                <option value="customer">Customer</option>
-                <option value="business-owner">Business Owner</option>
-              </select>
+              <div className="relative">
+                <select
+                  id="user-type"
+                  name="user-type"
+                  required
+                  className="appearance-none rounded relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-l pr-8"
+                >
+                  <option value="" disabled selected>
+                    Choose User Type
+                  </option>
+                  <option value="customer">Customer</option>
+                  <option value="business-owner">Business Owner</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <BsChevronDown />
+                </div>
+              </div>
             </div>
           </div>
+
 
           <div>
             <button
@@ -84,7 +92,7 @@ const SignUp = () => {
         <div className="text-center mt-4">
           <Link
             to="/"
-            className="font-medium text-indigo-600 hover:text-indigo-500"
+            className="font-medium text-indigo-600 hover:text-indigo-400"
           >
             Already have an account? Login
           </Link>
