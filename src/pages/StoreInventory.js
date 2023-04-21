@@ -13,7 +13,7 @@ const Store = () => {
           <Navbar />
         </div>
         <div className="w-1/2 p-8">
-          <h1 className="text-4xl font-bold mb-4">Store Name</h1>
+          <h1 className="text-4xl font-bold mb-4">Store <span className="text-indigo-800">Name</span></h1>
           <input
             type="text"
             className="w-full mb-8 px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -21,7 +21,7 @@ const Store = () => {
           />
 
           {/* Products grid */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Replace the following section with a loop to render multiple products */}
             <Link to="/product" className="cursor-pointer">
               <div className="bg-white p-4 rounded-md shadow-md h-full flex flex-col justify-center items-center cursor-pointer">
@@ -62,13 +62,13 @@ const Store = () => {
           <div className="flex flex-col h-full">
             {/* Review form */}
             <div className="bg-white p-4 rounded-md shadow-md mt-8 mb-8 flex-1max-h-20">
-              <h2 className="text-2xl font-bold mb-4">Store Info</h2>
+              <h2 className="text-2xl font-bold mb-4">Store <span className="text-indigo-700">Info</span></h2>
               <p>Hours of operation....</p>
               <p>Location....</p>
             </div>
             {/* Previous reviews */}
-            <div className="bg-white p-4 mb-8 rounded-md shadow-md mt-8 flex-1 overflow-y-auto max-h-100">
-              <h2 className="text-2xl font-bold mb-4">Previous reviews</h2>
+            <div className="bg-white p-4 mb-8 rounded-md shadow-md mt-8 flex-1 overflow-y-auto max-h-80 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-transparent hover:scrollbar-thumb-indigo-400">
+              <h2 className="text-2xl font-bold mb-4">Previous <span className="text-indigo-700">reviews</span></h2>
               {/* Replace the following section with a loop to render multiple reviews */}
               <Review />
               <Review />

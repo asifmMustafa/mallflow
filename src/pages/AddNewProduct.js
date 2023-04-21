@@ -18,7 +18,7 @@ const AddProduct = () => {
         </div>
         <div className="w-1/2 p-8">
           <div className="p-8 bg-white rounded-md shadow-md">
-            <h1 className="text-4xl font-bold mb-8">Add Product</h1>
+            <h1 className="text-4xl font-bold mb-8">Add <span className="text-indigo-800">Product</span></h1>
             <form>
               <div className="mb-6">
                 <label
@@ -117,7 +117,7 @@ const AddProduct = () => {
               </div>
               <button
                 type="submit"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400"
               >
                 Add Product
               </button>

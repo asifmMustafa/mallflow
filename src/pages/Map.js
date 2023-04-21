@@ -85,7 +85,7 @@ const Map = () => {
           <Navbar />
         </div>
         <div className="w-2/3 p-8">
-          <h1 className="text-4xl font-bold mb-8">Map</h1>
+          <h1 className="text-4xl font-bold mb-8"><span className="text-indigo-800">Map</span></h1>
           <div className="grid grid-cols-6 gap-4 p-5 border-2 border-gray rounded">
             {stores.map((store) => (
               <div

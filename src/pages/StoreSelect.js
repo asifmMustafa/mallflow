@@ -9,7 +9,7 @@ const StoreSelect = () => {
           <Navbar />
         </div>
         <div className="w-5/6 p-8">
-          <h1 className="text-4xl font-bold mb-8">Stores</h1>
+          <h1 className="text-4xl font-bold mb-8"><span className="text-indigo-800">Stores</span></h1>
           <div className="flex flex-wrap">
             <div className="w-1/4 p-4">
               <div className="bg-white p-4 rounded-md shadow-md h-full flex flex-col justify-center items-center cursor-pointer">
@@ -35,7 +35,7 @@ const StoreSelect = () => {
                 <h2 className="text-xl font-bold mb-2">Store 1</h2>
                 <p className="text-gray-700 mb-4">Category...</p>
                 <p className="text-gray-700 mb-4">Location...</p>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
+                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full hover:bg-indigo-400">
                   Select store
                 </button>
               </div>
@@ -45,7 +45,7 @@ const StoreSelect = () => {
                 <h2 className="text-xl font-bold mb-2">Store 2</h2>
                 <p className="text-gray-700 mb-4">Category...</p>
                 <p className="text-gray-700 mb-4">Location...</p>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
+                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full hover:bg-indigo-400">
                   Select store
                 </button>
               </div>
@@ -55,7 +55,7 @@ const StoreSelect = () => {
                 <h2 className="text-xl font-bold mb-2">Store 3</h2>
                 <p className="text-gray-700 mb-4">Category...</p>
                 <p className="text-gray-700 mb-4">Location...</p>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full">
+                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md w-full hover:bg-indigo-400">
                   Select store
                 </button>
               </div>

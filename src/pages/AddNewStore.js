@@ -10,7 +10,7 @@ const AddNewStore = () => {
         </div>
         <div className="w-2/3 p-8">
           <div className="bg-white p-8 rounded-md shadow-md">
-            <h1 className="text-4xl font-bold mb-8">Add new store</h1>
+            <h1 className="text-4xl font-bold mb-8">Add new <span className="text-indigo-800">store</span></h1>
             <form>
               <div className="mb-4">
                 <label htmlFor="name" className="block font-medium mb-2">
@@ -79,7 +79,7 @@ const AddNewStore = () => {
                   required
                 />
               </div>
-              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md">
+              <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400">
                 Add Store
               </button>
             </form>
