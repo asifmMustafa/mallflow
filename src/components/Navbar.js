@@ -1,18 +1,20 @@
-// components/Navbar.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(
-    JSON.parse(localStorage.getItem("navbarCollapsed")) || false
-  );
-
-  useEffect(() => {
-    localStorage.setItem("navbarCollapsed", JSON.stringify(isCollapsed));
-  }, [isCollapsed]);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
   };
 
   return (
@@ -57,7 +59,10 @@ const Navbar = () => {
               Cart
             </Link>
           </div>
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400">
+          <button
+            onClick={handleLogout}
+            className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400"
+          >
             Logout
           </button>
         </nav>
@@ -65,10 +70,7 @@ const Navbar = () => {
 
       {isCollapsed && (
         <div className="sticky top-0 h-screen w-16 p-8 bg-white flex flex-col justify-start items-center">
-          <button
-            onClick={handleToggle}
-            className="text-black text-2xl p-2"
-          >
+          <button onClick={handleToggle} className="text-black text-2xl p-2">
             &#9776;
           </button>
         </div>

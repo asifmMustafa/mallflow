@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { BsChevronDown } from "react-icons/bs"; // Import arrow icon
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { BsChevronDown } from "react-icons/bs";
 
 const SignUp = () => {
+  const { signup } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const phone = e.target.phone.value;
+    const password = e.target.password.value;
+    const userType = e.target["user-type"].value;
+
+    const success = await signup(name, email, phone, password, userType);
+    if (success) {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (currentUser.userType === "customer") {
+        navigate("/map");
+      } else if (currentUser.userType === "business-owner") {
+        navigate("/storeselect");
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -11,7 +35,7 @@ const SignUp = () => {
             Sign<span className="text-indigo-700">Up</span>
           </h1>
         </div>
-        <form className="mt-8 space-y-6">
+        <form onSubmit={handleSignUp} className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm space-y-4">
             <div>
               <label htmlFor="name" className="sr-only">
@@ -39,6 +63,20 @@ const SignUp = () => {
                 required
                 className="appearance-none rounded relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-l"
                 placeholder="Email address"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone-number" className="sr-only">
+                Phone Number
+              </label>
+              <input
+                id="phone-number"
+                name="phone"
+                type="text"
+                autoComplete="phone"
+                required
+                className="appearance-none rounded relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-l"
+                placeholder="Phone Number"
               />
             </div>
             <div>
@@ -78,7 +116,6 @@ const SignUp = () => {
               </div>
             </div>
           </div>
-
 
           <div>
             <button

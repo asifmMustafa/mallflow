@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const LoginPage = () => {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const success = await login(email, password);
+    if (success) {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (currentUser.userType === "customer") {
+        navigate("/map");
+      } else if (currentUser.userType === "business-owner") {
+        navigate("/storeselect");
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -10,7 +31,7 @@ const LoginPage = () => {
             Mall<span className="text-indigo-700">Flow</span>
           </h1>
         </div>
-        <form className="mt-8 space-y-6">
+        <form onSubmit={handleLogin} className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm space-y-4">
             <div>
               <label htmlFor="email-address" className="sr-only">
