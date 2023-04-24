@@ -6,6 +6,18 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const mapConfig = {
+    A1: [0, 0],
+    A2: [0, 1],
+    A3: [0, 2],
+    B1: [2, 0],
+    B2: [2, 1],
+    C1: [3, 0],
+    C2: [3, 1],
+    D1: [5, 0],
+    D2: [5, 1],
+    D3: [5, 2],
+  };
 
   useEffect(() => {
     const storedUser = localStorage.getItem("currentUser");
@@ -32,11 +44,9 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("currentUser", JSON.stringify(user));
         return true;
       } else {
-        throw new Error("Invalid email or password");
+        return false;
       }
     } catch (error) {
-      console.error("Error logging in: ", error);
-      // Handle login error, e.g., show a notification or an alert.
       return false;
     }
   };
@@ -47,7 +57,7 @@ const AuthProvider = ({ children }) => {
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
-        throw new Error("User with this email already exists");
+        return false;
       }
 
       const newUser = {
@@ -66,8 +76,6 @@ const AuthProvider = ({ children }) => {
       );
       return true;
     } catch (error) {
-      console.error("Error signing up: ", error);
-      // Handle signup error, e.g., show a notification or an alert.
       return false;
     }
   };
@@ -78,6 +86,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const value = {
+    mapConfig,
     currentUser,
     login,
     signup,
