@@ -1,21 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "../firebase";
 
-function StoreProduct({ details }) {
+function StoreProductV2({ details }) {
   const navigate = useNavigate();
-
-  const handleDelete = async () => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      try {
-        await deleteDoc(doc(db, "products", details.productId));
-        window.location.reload();
-      } catch (error) {
-        console.error("Error deleting product: ", error);
-      }
-    }
-  };
 
   return (
     <div className="bg-white p-4 rounded-md shadow-md hover:shadow-lg hover:scale-105 duration-300 cursor-pointer">
@@ -31,7 +18,7 @@ function StoreProduct({ details }) {
       <div className="flex justify-between">
         <button
           onClick={() => {
-            navigate("/editproduct", {
+            navigate("/product", {
               state: {
                 ...details,
               },
@@ -39,19 +26,20 @@ function StoreProduct({ details }) {
           }}
           className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400"
         >
-          Edit
+          Details
         </button>
-        <button
-          onClick={() => {
-            handleDelete();
-          }}
-          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-400"
-        >
-          Delete
-        </button>
+        {details.stock === "0" ? (
+          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400">
+            Add to Wishlist
+          </button>
+        ) : (
+          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-400">
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
-export default StoreProduct;
+export default StoreProductV2;

@@ -10,6 +10,7 @@ import StoreSelect from "./pages/StoreSelect";
 import AddNewStore from "./pages/AddNewStore";
 import StoreInventory from "./pages/StoreInventory";
 import AddNewProduct from "./pages/AddNewProduct";
+import EditProduct from "./pages/EditProduct";
 import Map from "./pages/Map";
 import { Routes, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/addstore" element={<AddNewStore />} />
         <Route path="/inventory" element={<StoreInventory />} />
         <Route path="/addproduct" element={<AddNewProduct />} />
+        <Route path="/editproduct" element={<EditProduct />} />
         <Route path="/map" element={<Map />} />
       </Routes>
     </div>
@@ -35,5 +37,3 @@ function App() {
 }
 
 export default App;
-
-

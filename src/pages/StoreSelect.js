@@ -94,6 +94,7 @@ const StoreSelect = () => {
                           onClick={() =>
                             navigate("/inventory", {
                               state: {
+                                id: store,
                                 name: stores[store].name,
                                 location: `Block ${stores[
                                   store

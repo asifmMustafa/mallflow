@@ -10,7 +10,9 @@ const Cart = () => {
           <Navbar />
         </div>
         <div className="w-2/3 p-8">
-          <h1 className="text-4xl font-bold mb-8"><span className="text-indigo-800">Cart</span></h1>
+          <h1 className="text-4xl font-bold mb-8">
+            <span className="text-indigo-800">Cart</span>
+          </h1>
           <div className="grid grid-cols-2 gap-4">
             {/* Replace the following section with a loop to render multiple products */}
             <CartProduct />
@@ -25,7 +27,9 @@ const Cart = () => {
         <div className="sticky top-0 h-screen w-1/3 p-8">
           <div className="bg-white p-4 rounded-md shadow-md h-full flex flex-col justify-between">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Check <span className="text-indigo-700">out</span></h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Check <span className="text-indigo-700">out</span>
+              </h2>
               <p className="text-gray-700 mb-4">Subtotal: $100</p>
               <p className="text-gray-700 mb-4">Tax: $10</p>
               <p className="text-gray-700 mb-4">Delivery fee: $10</p>

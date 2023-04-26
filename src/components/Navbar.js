@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthProvider";
 const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { logout } = useContext(AuthContext);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -28,14 +29,14 @@ const Navbar = () => {
             >
               &times;
             </button>
-            <h1 className="mt-2 mb-6 text-left text-2xl font-extrabold text-gray-900">
+            <h1 className="mt-2 mb-10 text-left text-2xl font-extrabold text-gray-900">
               Mall<span className="text-indigo-700">Flow</span>
             </h1>
             <Link
               to="/map"
               className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
             >
-              Back to map
+              Map
             </Link>
             <hr className="border-gray-200 my-6" />
             <Link
@@ -45,19 +46,39 @@ const Navbar = () => {
               Profile
             </Link>
             <hr className="border-gray-200 my-6" />
-            <Link
-              to="/wishlist"
-              className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
-            >
-              Wishlist
-            </Link>
-            <hr className="border-gray-200 my-6" />
-            <Link
-              to="/cart"
-              className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
-            >
-              Cart
-            </Link>
+            {currentUser.userType === "business-owner" && (
+              <div>
+                <Link
+                  to="/storeselect"
+                  className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
+                >
+                  Stores
+                </Link>
+                <hr className="border-gray-200 my-6" />
+              </div>
+            )}
+            {currentUser.userType === "customer" && (
+              <div>
+                <Link
+                  to="/wishlist"
+                  className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
+                >
+                  Wishlist
+                </Link>
+                <hr className="border-gray-200 my-6" />
+              </div>
+            )}
+            {currentUser.userType === "customer" && (
+              <div>
+                <Link
+                  to="/cart"
+                  className="block mb-3 text-gray-700 hover:text-indigo-600 text-lg"
+                >
+                  Cart
+                </Link>
+                <hr className="border-gray-200 my-6" />
+              </div>
+            )}
           </div>
           <button
             onClick={handleLogout}

@@ -66,6 +66,8 @@ const AuthProvider = ({ children }) => {
         phone,
         password,
         userType,
+        wishlist: [],
+        cart: [],
       };
 
       const docRef = await addDoc(collection(db, "users"), newUser);
